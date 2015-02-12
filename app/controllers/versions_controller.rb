@@ -1,6 +1,6 @@
-class VersionsController < ApplicationController
+ class VersionsController < ApplicationController
   before_action :set_version, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /versions
   # GET /versions.json
   def index
@@ -30,6 +30,7 @@ class VersionsController < ApplicationController
       if @version.save
         format.html { redirect_to '/versions' }
         format.json { render :show, status: :created, location: @version }
+        
       else
         format.html { render :new }
         format.json { render json: @version.errors, status: :unprocessable_entity }
